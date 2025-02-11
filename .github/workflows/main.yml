@@ -21,7 +21,6 @@ jobs:
           RUN apt-get update && apt-get install -y \
               python3 \
               python3-pip
-          RUN pip3 install -r requirements.txt
           CMD ["python3", "app.py"]
           EOF
 
@@ -32,9 +31,9 @@ jobs:
         id: scan
         uses: PaloAltoNetworks/prisma-cloud-scan@v1.5
         with:
-          pcc_console_url: ${{ secrets.PCC_CONSOLE_URL }}
-          pcc_user: ${{ secrets.PCC_USER }}
-          pcc_pass: ${{ secrets.PCC_PASS }}
+          pcc_console_url: https://us-east1.cloud.twistlock.com/us-2-158286553
+          pcc_user: fe84e279-5618-4fb0-a231-7308ed8b46a4
+          pcc_pass: fC/kwCY46umqfw0UePfDQbAifro=
           image_name: ${{ env.IMAGE_NAME }}
 
       # (Optional) for compatibility with GitHub's code scanning alerts
